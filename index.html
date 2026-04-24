@@ -3,54 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TECINFO</title>
+    <title>Rodolfo Dias | ADS</title>
+    
     <style>
+        /* 1. Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #e6e6ec;
-            color: #333;             
-            text-align: center;       
-            padding: 50px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d1117; /* Fundo escuro deep tech */
+            color: white;
+            overflow-x: hidden;
         }
 
-        
+        /* 2. Onde a animação vai acontecer */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(13, 17, 23, 0.8), rgba(13, 17, 23, 0.8)), url('v617batch2-bb-01-technology.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1; /* Fica atrás de tudo */
+        }
+
+        /* 3. Camada do conteúdo */
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+            max-width: 500px;
+        }
+
         .foto-perfil {
-            width: 150px;          
-            height: 150px;          
-            border-radius: 50%;     
-            object-fit: cover;      
-            border: 3px solid #0077b5; 
-            margin-bottom: 20px;   
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 3px solid #00d4ff;
+            margin-bottom: 20px;
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
         }
 
-        a {
+        h1 { font-size: 2.2rem; margin-bottom: 5px; color: #00d4ff; }
+        p { margin-bottom: 20px; color: #ccc; }
+
+        .links a {
             display: inline-block;
             margin: 10px;
+            padding: 10px 20px;
+            color: white;
             text-decoration: none;
-            color: #0077b5;
+            border: 1px solid #00d4ff;
+            border-radius: 50px;
+            transition: 0.3s;
             font-weight: bold;
+            background: rgba(0, 212, 255, 0.1);
         }
 
-        a:hover {
-            color: #a51622;           
+        .links a:hover {
+            background: #00d4ff;
+            color: #000;
+            box-shadow: 0 0 15px #00d4ff;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: #aaa;
         }
     </style>
 </head>
 <body>
 
-    <img src="eu.png" alt="Foto de Rodolfo Dias" class="foto-perfil">
+    <div id="particles-js"></div>
 
-    <h1>Rodolfo Dias</h1>
-    <p>Welcome to my page.</p>
-    
-    <hr>
-    
-    <a href="https://github.com/rodolfodg" target="_blank">Visit my GitHub</a>
-    <a href="https://www.linkedin.com/in/rodolfo-dias-guedes-4b8203265" target="_blank">Visit my LinkedIn</a>
-    
-    <hr>
-    
-    <p><strong>Whatsapp:</strong> (83) 99322-8124</p>
+    <div class="content">
+        <div class="card">
+            <img src="eu.png" alt="Rodolfo Dias" class="foto-perfil">
+            <h1>Rodolfo Dias</h1>
+            <p>Estudante de Análise e Desenvolvimento de Sistemas</p>
+            
+            <div class="links">
+                <a href="https://github.com/rodolfodg" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/rodolfo-dias-guedes-4b8203265" target="_blank">LinkedIn</a>
+                <a href="https://wa.link/yvkjzy" target="_blank">WhatsApp</a>
+            </div>
 
+            <footer>
+                "Estudante de ADS, católico e pai das Marias.<br>
+                Transformando dedicação em código e valores em propósito."
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00d4ff" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5, "random": false },
+                "size": { "value": 3, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#00d4ff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+                    "push": { "particles_nb": 4 }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
 </body>
 </html>
