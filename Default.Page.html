@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoctorCare | Saúde Personalizada</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #00856f;
+            --primary-color-hover: #00453a;
+            --brand-light: #f7f9f9;
+            --brand-beige: #eff7f9;
+            --headline: #212121;
+            --paragraph: #495057;
+            --white: #ffffff;
+            --bg-stats: #FFFAF1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--paragraph); line-height: 1.6; }
+
+        .wrapper { width: 90%; max-width: 1120px; margin: 0 auto; }
+        section { padding: 100px 0; }
+        h1, h2, h3 { color: var(--headline); line-height: 1.2; }
+        img { max-width: 100%; height: auto; border-radius: 8px; }
+
+        /* Botões */
+        .button {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 16px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            transition: 0.3s;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+        .button:hover { background: var(--primary-color-hover); }
+
+        /* Navigation */
+        nav { display: flex; height: 72px; align-items: center; position: fixed; top: 0; width: 100%; background: var(--brand-light); z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        nav .wrapper { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; text-decoration: none; color: var(--headline); }
+        .logo span { color: var(--primary-color); }
+        .menu { display: flex; gap: 32px; list-style: none; }
+        .menu a { text-decoration: none; color: var(--primary-color); font-weight: 500; }
+
+        /* Header */
+        header { background: var(--brand-light); padding-top: 150px; padding-bottom: 100px; }
+        header .wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        header h4 { color: var(--primary-color); margin-bottom: 16px; font-size: 14px; letter-spacing: 0.08rem; }
+        header h1 { font-size: 52px; margin-bottom: 24px; }
+        header p { font-size: 18px; margin-bottom: 32px; }
+
+        /* Stats */
+        #stats { background: var(--bg-stats); padding: 60px 0; border-radius: 6px; margin-top: -80px; border: 1px solid #dce9e2; position: relative; z-index: 10; }
+        #stats .wrapper { display: flex; justify-content: space-around; text-align: center; }
+        .stat h3 { font-size: 48px; }
+        .stat p { color: var(--primary-color); font-weight: bold; }
+
+        /* Services */
+        #services { background: #f9f9f9; text-align: center; }
+        .section-title h4 { color: var(--primary-color); margin-bottom: 16px; text-transform: uppercase; }
+        .section-title h2 { font-size: 40px; margin-bottom: 60px; max-width: 500px; margin-inline: auto; }
+        .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .card { background: white; padding: 32px; border: 1px solid #dce9e2; border-radius: 8px; text-align: left; }
+        .card h3 { margin-bottom: 16px; font-size: 24px; }
+
+        /* Testimonials */
+        #testimonials { background: white; text-align: center; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
+        .testimonial-box { background: var(--bg-stats); padding: 32px; border-radius: 8px; text-align: left; border: 1px solid #eee; }
+        .user { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+        .user img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+        .user strong { color: var(--headline); font-size: 18px; }
+        .testimonial-box p { font-style: italic; color: var(--paragraph); }
+
+        /* About  */
+        #about { background: var(--brand-beige); }
+        #about .wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .about-content h2 { font-size: 48px; margin-bottom: 24px; }
+        .about-content p { font-size: 20px; line-height: 160%; color: var(--paragraph); }
+
+        /* Contact */
+        #contact .wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .contact-info li { display: flex; gap: 12px; margin-bottom: 16px; font-size: 18px; list-style: none; }
+
+        /* Footer */
+        footer { background: var(--primary-color); padding: 80px 0; color: white; }
+
+        @media (max-width: 768px) {
+            header .wrapper, #about .wrapper, #contact .wrapper { grid-template-columns: 1fr; text-align: center; }
+            .cards, .testimonial-grid { grid-template-columns: 1fr; }
+            .menu { display: none; }
+            header img { order: -1; }
+            .about-content h2 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="wrapper">
+            <a class="logo" href="#">Doctor<span>Care</span></a>
+            <ul class="menu">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#testimonials">Depoimentos</a></li>
+                <li><a href="#about">Sobre</a></li>
+            </ul>
+            <a class="button" style="padding: 10px 24px; font-size: 12px;" href="#contact">Agendar sua consulta</a>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="wrapper">
+            <div>
+                <h4>BOAS-VINDAS A DOCTORCARE 👋</h4>
+                <h1>Assistência médica simplificada para todos</h1>
+                <p>Os médicos da DoctorCare vão além dos sintomas para tratar a causa raiz de sua doença e proporcionar uma cura a longo prazo.</p>
+                <a class="button" href="#contact">Agende sua consulta</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=600" alt="Médica">
+        </div>
+    </header>
+
+    <section id="stats">
+        <div class="wrapper">
+            <div class="stat"><h3>+3.500</h3><p>Pacientes atendidos</p></div>
+            <div class="stat"><h3>+15</h3><p>Especialistas disponíveis</p></div>
+            <div class="stat"><h3>+10</h3><p>Anos no mercado</p></div>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="wrapper">
+            <div class="section-title">
+                <h4>SERVIÇOS</h4>
+                <h2>Como podemos ajudá-lo a se sentir melhor?</h2>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <h3>Problemas digestivos</h3>
+                    <p>Tratamentos especializados para azia, refluxo e intolerâncias alimentares com foco na saúde intestinal.</p>
+                </div>
+                <div class="card">
+                    <h3>Saúde Hormonal</h3>
+                    <p>Equilíbrio metabólico e endócrino para garantir energia e disposição no seu dia a dia.</p>
+                </div>
+                <div class="card">
+                    <h3>Bem-estar mental</h3>
+                    <p>Apoio psicológico e psiquiátrico para tratar ansiedade e estresse com abordagem humanizada.</p>
+                </div>
+                <div class="card">
+                    <h3>Cuidados Pediátricos</h3>
+                    <p>Acompanhamento completo para o desenvolvimento saudável das crianças desde os primeiros meses.</p>
+                </div>
+                <div class="card">
+                    <h3>Autoimune</h3>
+                    <p>Controle e manejo de doenças inflamatórias com foco na redução de crises e melhora da imunidade.</p>
+                </div>
+                <div class="card">
+                    <h3>Saúde do Coração</h3>
+                    <p>Prevenção e tratamento cardiovascular com check-ups detalhados e orientações preventivas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="wrapper">
+            <h4>DEPOIMENTOS</h4>
+            <h2>O que os clientes dizem sobre o DoctorCare</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-box">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/100?u=wanessa" alt="Wanessa">
+                        <strong>Wanessa Souza</strong>
+                    </div>
+                    <p>“O atendimento superou minhas expectativas. Pela primeira vez um médico investigou a causa raiz do meu problema.”</p>
+                </div>
+                <div class="testimonial-box">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/100?u=marcos" alt="Marcos">
+                        <strong>Marcos Paulo</strong>
+                    </div>
+                    <p>“Ambiente acolhedor e profissionais extremamente competentes. A agilidade no agendamento facilita muito a rotina.”</p>
+                </div>
+                <div class="testimonial-box">
+                    <div class="user">
+                        <img src="https://i.pravatar.cc/100?u=carla" alt="Carla">
+                        <strong>Carla Mendes</strong>
+                    </div>
+                    <p>“Excelente clínica. O tratamento para minha saúde hormonal mudou completamente meu nível de energia diária.”</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="wrapper">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80&w=600" alt="Sobre nós">
+            <div class="about-content">
+                <h4>SOBRE NÓS</h4>
+                <h2>Entenda quem somos e por que existimos</h2>
+                <p>A DoctorCare nasceu para transformar a jornada de saúde. Acreditamos que cada paciente é único e merece um cuidado que vai além de uma simples prescrição médica.</p>
+                <p style="margin-top: 20px;">Nossa missão é proporcionar longevidade e bem-estar através de uma medicina que integra tecnologia, ciência e, acima de tudo, empatia humana.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="wrapper">
+            <div class="contact-info">
+                <h2>Entre em contato com a gente!</h2>
+                <ul style="margin: 32px 0;">
+                    <li>📍 R. Amauri Souza, 346</li>
+                    <li>📧 contato@doctorcare.com</li>
+                </ul>
+                <a class="button" href="#">Agendar sua consulta</a>
+            </div>
+            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=600" alt="Contato">
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrapper">
+            <a class="logo" href="#" style="color:white">Doctor<span>Care</span></a>
+            <p>©2026 - DoctorCare. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
