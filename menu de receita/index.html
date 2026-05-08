@@ -4,13 +4,77 @@
   <meta charset="UTF-8">
   <title>Receitas Deliciosas</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- CABEÇALHO --- */
+    header {
+      display: flex;
+      justify-content: space-between; /* Separa o logo dos links */
+      align-items: center;
+      padding: 10px 5%;
+      background-color: #1a472a; /* Verde escuro da sua imagem */
+      color: white;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-image {
+      width: 80px;      /* Tamanho da logo */
+      height: 80px;
+      border-radius: 50%; /* Deixa a imagem REDONDA */
+      object-fit: cover;
+      border: 2px solid #ffb800; /* Borda amarela combinando com a arte */
+    }
+
+    .logo-text {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav a {
+      font-weight: bold;      /* Letras grossas */
+      margin: 0 15px;         /* Espaçamento entre links */
+      text-decoration: none;
+      color: white;           /* Cor branca para contrastar com o verde */
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffb800;         /* Muda para amarelo ao passar o mouse */
+    }
+
+    /* --- RESTANTE DO ESTILO  --- */
+    body { font-family: Arial, sans-serif; margin: 0; background-color: #f4f4f4; }
+    main { padding: 20px; text-align: center; }
+    .receitas { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+      gap: 20px; 
+      padding: 20px; 
+    }
+    .card { 
+      background: white; 
+      border-radius: 10px; 
+      overflow: hidden; 
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+      position: relative;
+    }
+    .img-container img { width: 100%; height: 200px; object-fit: cover; }
+    .card a { text-decoration: none; color: #333; }
+    .favorito { position: absolute; top: 10px; right: 10px; font-size: 20px; cursor: pointer; }
+  </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-  <div class="logo">🍳 Sabor & Arte</div>
+  <div class="logo">
+    <img src="download.png" alt="Sabor & Arte Logo" class="logo-image">
+    <span class="logo-text">Sabor & Arte</span>
+  </div>
 
   <nav>
     <a href="#">Início</a>
@@ -19,17 +83,12 @@
   </nav>
 </header>
 
-<!-- MAIN -->
 <main>
-
   <h1>Receitas em Destaque</h1>
 
   <div class="receitas">
-
-    <!-- CARD 1 -->
     <div class="card">
       <div class="favorito">❤️</div>
-
       <a href="receita.html">
         <div class="img-container">
           <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=800">
@@ -39,10 +98,8 @@
       </a>
     </div>
 
-    <!-- CARD 2 -->
     <div class="card">
       <div class="favorito">❤️</div>
-
       <a href="#">
         <div class="img-container">
           <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800">
@@ -52,10 +109,8 @@
       </a>
     </div>
 
-    <!-- CARD 3 -->
     <div class="card">
       <div class="favorito">❤️</div>
-
       <a href="#">
         <div class="img-container">
           <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800">
@@ -65,10 +120,8 @@
       </a>
     </div>
 
-    <!-- CARD 4 -->
     <div class="card">
       <div class="favorito">❤️</div>
-
       <a href="#">
         <div class="img-container">
           <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800">
@@ -77,7 +130,6 @@
         <p>Leve, saudável e colorida.</p>
       </a>
     </div>
-
   </div>
 </main>
 
