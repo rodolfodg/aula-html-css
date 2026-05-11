@@ -1,0 +1,116 @@
+:root {
+    --primary-color: #00856f;
+    --primary-color-hover: #00453a;
+    --brand-light: #f7f9f9;
+    --brand-beige: #eff7f9;
+    --headline: #212121;
+    --paragraph: #495057;
+    --white: #ffffff;
+    --bg-stats: #FFFAF1;
+    --danger: #FF5C5C;
+}
+
+/* CRITÉRIO: Box Model (Reset e Box-sizing) */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--paragraph); line-height: 1.6; }
+
+.wrapper { width: 90%; max-width: 1120px; margin: 0 auto; }
+section { padding: 100px 0; }
+h1, h2, h3 { color: var(--headline); line-height: 1.2; }
+img { max-width: 100%; height: auto; border-radius: 8px; }
+
+/* Navigation */
+nav { display: flex; height: 72px; align-items: center; position: fixed; top: 0; width: 100%; background: var(--brand-light); z-index: 100; border-bottom: 1px solid rgba(0,0,0,0.05); }
+nav .wrapper { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 24px; font-weight: bold; text-decoration: none; color: var(--headline); }
+.logo span { color: var(--primary-color); }
+.menu { display: flex; gap: 32px; list-style: none; }
+.menu a { text-decoration: none; color: var(--primary-color); font-weight: 500; }
+
+/* Botões */
+.button {
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 16px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-flex;
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.button:hover { background: var(--primary-color-hover); }
+.nav-button { padding: 10px 24px; font-size: 12px; }
+
+/* Header */
+header { background: var(--brand-light); padding-top: 150px; padding-bottom: 100px; }
+header .wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+header h4 { color: var(--primary-color); margin-bottom: 16px; font-size: 14px; letter-spacing: 0.08rem; }
+header h1 { font-size: 52px; margin-bottom: 24px; }
+
+/* Stats */
+#stats { background: var(--bg-stats); padding: 60px 0; border-radius: 6px; margin-top: -80px; border: 1px solid #dce9e2; position: relative; z-index: 10; }
+#stats .wrapper { display: flex; justify-content: space-around; text-align: center; }
+.stat h3 { font-size: 48px; }
+.stat p { color: var(--primary-color); font-weight: bold; }
+
+/* SERVIÇOS (Ajustado conforme desafio) */
+#services { background: #f9f9f9; text-align: center; }
+.section-title h2 { font-size: 40px; margin-bottom: 60px; }
+
+/* CRITÉRIO: Box Model (Margin e Gap entre blocos) */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+/* CRITÉRIO: Box Model (Padding interno) e Position (para o bônus) */
+.card { 
+    background: white; 
+    padding: 32px; /* Padding interno exigido */
+    border: 1px solid #dce9e2; 
+    border-radius: 8px; 
+    text-align: left; 
+    position: relative; /* Base para o selo */
+}
+
+.card.featured { border: 2px solid var(--primary-color); }
+
+/* BÔNUS: Position do Selo */
+.badge {
+    position: absolute;
+    top: -12px;
+    right: 15px;
+    background: var(--danger);
+    color: white;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* CRITÉRIO: Listas Benefícios */
+.card ul { list-style: none; margin-top: 15px; }
+.card li { font-size: 14px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.card li::before { content: "✔"; color: var(--primary-color); font-weight: bold; }
+
+/* Testimonials */
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 60px; }
+.testimonial-box { background: var(--bg-stats); padding: 32px; border-radius: 8px; text-align: left; border: 1px solid #eee; }
+.user { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
+.user img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+
+/* About & Contact */
+#about .wrapper, #contact .wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.contact-info ul { list-style: none; margin: 32px 0; }
+
+/* Footer */
+footer { background: var(--primary-color); padding: 80px 0; color: white; text-align: center; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    header .wrapper, #about .wrapper, #contact .wrapper { grid-template-columns: 1fr; text-align: center; }
+    .cards, .testimonial-grid { grid-template-columns: 1fr; }
+    .menu { display: none; }
+    header img { order: -1; }
+}
